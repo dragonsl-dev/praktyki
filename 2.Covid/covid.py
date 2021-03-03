@@ -1,5 +1,4 @@
 import sys
-import collections
 from tkinter import *
 from tkinter import messagebox
 from tkinter.ttk import *
@@ -9,7 +8,6 @@ from tkinter.messagebox import Message
 from dateutil import relativedelta
 
 import matplotlib.pyplot as plt
-import urllib.request
 
 from urllib.request import urlopen
 from urllib.request import Request
@@ -29,55 +27,55 @@ class CovidApp:
         
         self.root: Frame = root
         
-        self.settings: Frame = Frame()
+        self.frm_settings: Frame = Frame()
         control_names = ["Kraj", "Czas", "Przypadki", "Bierzące", "Śmierci", "Uzdrowienia"]
         # lista krajow
-        self.countries: Combobox = Combobox(self.settings)
-        self.countries.bind("<<ComboboxSelected>>", self.show_graph)
-        self.countries.grid(column=1, row=1)
-        self.countries['values'] = self.fetch_countries()
+        self.cmb_countries: Combobox = Combobox(self.frm_settings)
+        self.cmb_countries.bind("<<ComboboxSelected>>", self.show_graph)
+        self.cmb_countries.grid(column=1, row=1)
+        self.cmb_countries['values'] = self.fetch_countries()
         
         # wybor czasu
-        self.cmb_timerange: Combobox = Combobox(self.settings)
+        self.cmb_timerange: Combobox = Combobox(self.frm_settings)
         self.cmb_timerange.bind("<<ComboboxSelected>>", self.show_graph)
         self.cmb_timerange.grid(column=1, row=2)
         self.cmb_timerange['values'] = ['Cały', 'Rok', '6 Miesięcy', '3 Miesiące', '1 miesiąc']
 
 
         self.intvar_show_cases = IntVar(value=1)
-        self.chk_show_cases = Checkbutton(self.settings, variable=self.intvar_show_cases, command=self.show_graph)
+        self.chk_show_cases = Checkbutton(self.frm_settings, variable=self.intvar_show_cases, command=self.show_graph)
         self.chk_show_cases.grid(column=1, row=3)
 
         self.intvar_show_active = IntVar(value=1)
-        self.chk_show_active = Checkbutton(self.settings, variable=self.intvar_show_active, command=self.show_graph)
+        self.chk_show_active = Checkbutton(self.frm_settings, variable=self.intvar_show_active, command=self.show_graph)
         self.chk_show_active.grid(column=1, row=4)
 
         self.intvar_show_deaths = IntVar()
-        self.chk_show_deaths = Checkbutton(self.settings, variable=self.intvar_show_deaths, command=self.show_graph)
+        self.chk_show_deaths = Checkbutton(self.frm_settings, variable=self.intvar_show_deaths, command=self.show_graph)
         self.chk_show_deaths.grid(column=1, row=5)
 
         self.intvar_show_recovered = IntVar()
-        self.chk_show_recovered = Checkbutton(self.settings, variable=self.intvar_show_recovered, command=self.show_graph)
+        self.chk_show_recovered = Checkbutton(self.frm_settings, variable=self.intvar_show_recovered, command=self.show_graph)
         self.chk_show_recovered.grid(column=1, row=6)
 
 
-        self.lbl_summary = Label(self.settings)
+        self.lbl_summary = Label(self.frm_settings)
         self.lbl_summary.grid(column=0, row=7, columnspan=2)
         # wykres
         self.plot1 = PhotoImage()
 
-        self.lb_plot1 = Label(self.root, image=self.plot1)
-        self.lb_plot1.pack(side=RIGHT, fill=BOTH)
+        self.lbl_plot1 = Label(self.root, image=self.plot1)
+        self.lbl_plot1.pack(side=RIGHT, fill=BOTH)
     
-        self.settings.pack(side=LEFT, fill=Y)
+        self.frm_settings.pack(side=LEFT, fill=Y)
         
         
         for idx, i in enumerate(control_names):
-            self.lbl_x: Label = Label(self.settings, text=i+":")
+            self.lbl_x: Label = Label(self.frm_settings, text=i+":")
             self.lbl_x.grid(column=0, row=idx+1)
 
         # wykres startowy
-        self.countries.set('Poland')
+        self.cmb_countries.set('Poland')
         self.cmb_timerange.current(0)
         self.show_graph()
 
@@ -86,7 +84,7 @@ class CovidApp:
     def show_summary(self):
         data = self.api_get('https://api.covid19api.com/summary')
 
-        country = self.countries.get()
+        country = self.cmb_countries.get()
         summary = ""
 
         def create_summary(stats):
@@ -121,7 +119,7 @@ class CovidApp:
 
         self.show_summary()
 
-        country = self.countries.get()
+        country = self.cmb_countries.get()
 
         time_table = {1: 12,
                       2: 6,
@@ -135,7 +133,6 @@ class CovidApp:
             time_query = "?" + urlencode({'from': "{0}T00:00:00Z".format(data_from.strftime("%Y-%m-%d")),
                                     'to'  : "{0}T00:00:00Z".format(datetime.now().strftime("%Y-%m-%d"))})
             print(time_query)
-            #time_query = "?from={0}T00:00:00Z&to={1}T00:00:00Z".format(data_from.strftime("%Y-%m-%d"), datetime.now().strftime("%Y-%m-%d"))
 
         
         plot_data = self.api_get("https://api.covid19api.com/total/country/" + quote(country) + time_query)
