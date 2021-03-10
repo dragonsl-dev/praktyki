@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8428598592989572274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9201897952450213384}
+  - component: {fileID: 5196150091664030125}
+  - component: {fileID: 8068367729585786215}
+  - component: {fileID: -3833754763627776820}
+  m_Layer: 0
+  m_Name: Card
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9201897952450213384
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428598592989572274}
+  m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
+  m_LocalPosition: {x: 1.379, y: 0.0088, z: -7.711}
+  m_LocalScale: {x: 100, y: 100, z: 100}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: 0}
+--- !u!33 &5196150091664030125
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428598592989572274}
+  m_Mesh: {fileID: -462981019419857548, guid: ea1a364e14df1ca4f910b7fe550022af, type: 3}
+--- !u!23 &8068367729585786215
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428598592989572274}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -1589650526233091400, guid: ea1a364e14df1ca4f910b7fe550022af, type: 3}
+  - {fileID: 2100000, guid: 29c4ab171cb56224fb738c45707ffae7, type: 2}
+  - {fileID: 2100000, guid: 29c4ab171cb56224fb738c45707ffae7, type: 2}
+  - {fileID: -8312614178004603661, guid: ea1a364e14df1ca4f910b7fe550022af, type: 3}
+  - {fileID: 2100000, guid: 2ec150422b19ab040956d8b06607dae9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &-3833754763627776820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8428598592989572274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9853c62020a81ea40a34b38fe4d2ccfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rank: 11
+  Suit: 2
+  RankTextures:
+  - {fileID: 2800000, guid: 5b2f4282b047efe488a660d4728cd37a, type: 3}
+  - {fileID: 2800000, guid: 9d20322cd0f7b894f8966e4474c6e65e, type: 3}
+  - {fileID: 2800000, guid: c7138b350c0b9b648b85153de675dbf5, type: 3}
+  - {fileID: 2800000, guid: a36bb40831fc08e4583a8ff3173f6443, type: 3}
+  - {fileID: 2800000, guid: a0a5ce6d12d2b4e4083d16302c43140b, type: 3}
+  - {fileID: 2800000, guid: 7db3a5d252a825544a80f814dd291032, type: 3}
+  - {fileID: 2800000, guid: d3dba62179c58814784b62be38edd6fa, type: 3}
+  - {fileID: 2800000, guid: b97e86a7689511f4ea42845d90e5768b, type: 3}
+  - {fileID: 2800000, guid: ec7bde37ad23fcd4d8ca73ca9ea1dda5, type: 3}
+  - {fileID: 2800000, guid: 965551ede58afe640a7d2acefafda052, type: 3}
+  - {fileID: 2800000, guid: fc426bcc15344144b9fbb88048ac82c8, type: 3}
+  - {fileID: 2800000, guid: 7153250b188d10442b57f30737b3afdf, type: 3}
+  - {fileID: 2800000, guid: 3169bc917d65a7a4785bb426929e9daa, type: 3}
+  SuitTextures:
+  - {fileID: 2800000, guid: 7638b7a0bcece66409e70b26d39173eb, type: 3}
+  - {fileID: 2800000, guid: 621f7a9d6415fa6408a2500a4bf55b53, type: 3}
+  - {fileID: 2800000, guid: d8fa8de4d7fdbb94e9f9f7e8062c1f66, type: 3}
+  - {fileID: 2800000, guid: d4529cd7023db244f9cceb0277b082f2, type: 3}
+  renderer: {fileID: 8068367729585786215}
